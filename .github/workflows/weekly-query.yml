@@ -2,7 +2,7 @@ name: Tribox action
 
 on:
   schedule:
-    - cron: "0 0 * * 0,3" # Runs every Sunday and Wednesday
+    - cron: "0 0 * * 0,3" # Runs every Wednesday and Sunday
   workflow_dispatch:
 
 jobs:
@@ -10,5 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send HTTP Request
-        run: curl https://tribox-commerce.vercel.app/api/etc/weekly-query
+    - name: Send HTTP Request to Weekly Query
+      run: curl https://tribox-commerce.vercel.app/api/etc/weekly-query
+
+    - name: Send HTTP Request to Home Page
+      run: curl https://tribox-commerce.vercel.app/
